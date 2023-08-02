@@ -1,0 +1,51 @@
+id,code,name
+0,DL,Delta Airlines
+1,UA,United Airlines
+2,AA,American Airlines
+3,WN,Southwest Airlines
+4,AS,Alaska Airlines
+5,NK,Spirit Airlines
+6,G4,Allegiant Air
+7,B6,JetBlue Airways
+8,HA,Hawaiian Airlines
+9,F9,Frontier Airlines
+10,VX,Virgin America
+11,SY,Sun Country Airlines
+12,MQ,American Eagle
+13,YX,Republic Airways
+14,OH,PSA Airlines
+15,9E,Endeavor Air
+16,YV,Mesa Airlines
+17,EV,ExpressJet
+18,QX,Horizon Air
+19,CP,Compass Airlines
+20,C5,CommutAir
+21,ZW,Air Wisconsin
+22,AX,Trans States Airlines
+23,PT,Piedmont Airlines
+24,G7,GoJet Airlines
+25,KS,Peninsula Airways
+26,EM,Empire Airlines
+27,QK,Air Canada Jazz
+28,PW,Precision Air
+29,8V,Astral Aviation
+30,KQ,Kenya Airways
+31,AT,Royal Air Maroc
+32,AH,Air Algerie
+33,AC,Air Canada
+34,AF,Air France
+35,AZ,Alitalia
+36,BA,British Airways
+37,EI,Aer Lingus
+38,IB,Iberia
+39,KL,KLM
+40,LH,Lufthansa
+41,SK,SAS
+42,SN,Brussels Airlines
+43,VS,Virgin Atlantic
+44,NH,All Nippon Airways
+45,JL,Japan Airlines
+46,QF,Qantas
+47,SQ,Singapore Airlines
+48,CX,Cathay Pacific
+49,KL,KLM Royal Dutch Airlines

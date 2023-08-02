@@ -1,0 +1,51 @@
+id,code,city,country
+0,LAX,Los Angeles,California
+1,SFO,San Francisco,California
+2,JFK,New York,New York
+3,ATL,Atlanta,Georgia
+4,ORD,Chicago,Illinois
+5,DFW,Dallas-Fort Worth,Texas
+6,DEN,Denver,Colorado
+7,LAS,Las Vegas,Nevada
+8,PHX,Phoenix,Arizona
+9,SEA,Seattle,Washington
+10,MIA,Miami,Florida
+11,BOS,Boston,Massachusetts
+12,MSP,Minneapolis,Minnesota
+13,FLL,Fort Lauderdale,Florida
+14,DTW,Detroit,Michigan
+15,PHL,Philadelphia,Pennsylvania
+16,LGA,New York,New York
+17,BWI,Baltimore,Maryland
+18,SLC,Salt Lake City,Utah
+19,SAN,San Diego,California
+20,DCA,Washington,District of Columbia
+21,MDW,Chicago,Illinois
+22,TPA,Tampa,Florida
+23,HOU,Houston,Texas
+24,PDX,Portland,Oregon
+25,STL,St. Louis,Missouri
+26,BNA,Nashville,Tennessee
+27,OAK,Oakland,California
+28,MCI,Kansas City,Missouri
+29,SMF,Sacramento,California
+30,CLE,Cleveland,Ohio
+31,IND,Indianapolis,Indiana
+32,MKE,Milwaukee,Wisconsin
+33,RDU,Raleigh,North Carolina
+34,SNA,Santa Ana,California
+35,SJU,San Juan,Puerto Rico
+36,HNL,Honolulu,Hawaii
+37,OGG,Kahului,Hawaii
+38,ANC,Anchorage,Alaska
+39,BUF,Buffalo,New York
+40,PIT,Pittsburgh,Pennsylvania
+41,OMA,Omaha,Nebraska
+42,MSY,New Orleans,Louisiana
+43,BDL,Hartford,Connecticut
+44,OKC,Oklahoma City,Oklahoma
+45,ABQ,Albuquerque,New Mexico
+46,BHM,Birmingham,Alabama
+47,ROC,Rochester,New York
+48,TUS,Tucson,Arizona
+49,TUL,Tulsa,Oklahoma

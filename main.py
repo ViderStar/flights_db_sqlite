@@ -66,33 +66,29 @@ class Database:
         if os.path.exists('airports.csv'):
             try:
                 airports = pd.read_csv('airports.csv')
-                airports.columns = ["id", "name", "city", "country", "code", "icao", "latitude", "longitude",
-                                    "altitude",
-                                    "offset", "dst", "timezone", "type", "source"]
                 airports.to_sql('airports', conn, if_exists='append', index=False)
             except pd.errors.ParserError:
-                print('Ошибка при чтении файла airports.csv')
+                print('Error reading airports.csv')
         else:
-            print('Файл airports.csv не найден')
+            print('airports.csv not found')
 
         if os.path.exists('airlines.csv'):
             try:
                 airlines = pd.read_csv('airlines.csv')
-                airlines.columns = ["id", "name", "alias", "iata", "icao", "callsign", "country", "active"]
                 airlines.to_sql('airlines', conn, if_exists='append', index=False)
             except pd.errors.ParserError:
-                print('Ошибка при чтении файла airlines.csv')
+                print('Error reading airlines.csv')
         else:
-            print('Файл airlines.csv не найден')
+            print('airlines.csv not found')
 
         if os.path.exists('flights.csv'):
             try:
                 flights = pd.read_csv('flights.csv')
                 flights.to_sql('flights', conn, if_exists='append', index=False)
             except pd.errors.ParserError:
-                print('Ошибка при чтении файла flights.csv')
+                print('Error reading flights.csv')
         else:
-            print('Файл flights.csv не найден')
+            print('flights.csv not found')
 
         self.conn.commit()
     def insert_airports(self, airport_values):
@@ -231,6 +227,9 @@ if __name__ == '__main__':
     db = Database()
 
     # db.create_database()
+
+    # LOAD DATA FROM CSV
+    # db.load_data()
 
     # INSERT 50 ROWS
     db.insert_airports(airport_values)
