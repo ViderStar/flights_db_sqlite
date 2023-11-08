@@ -35,6 +35,34 @@ Unit tests are included in the test.py file. They test the functions of getting 
 ## Data
 Data for airports and airlines is stored in values.py. The airport_values and airline_values variables contain data for 50 airports and airlines respectively. The flights_values variable contains randomly generated flight data. The actual data for airports, airlines, and flights is expected to be loaded from CSV files using the load_data method.
 
+Airport data (airports.csv):
+
+- id (Integer) 
+- code (Text)
+- city (Text)
+- country (Text)
+
+Airline data (airlines.csv):
+
+- id (Integer)
+- code (Text) 
+- name (Text)
+
+Flight data (flights.csv):
+
+- id (Integer)
+- date (Date)  
+- airline (Text, value from airline lookup)
+- origin (Text, value from airport lookup)
+- destination (Text, value from airport lookup)
+- departure_time (Integer)
+- arrival_time (Integer)
+- flight_time (Integer) 
+- distance (Integer)
+
+The "airline", "origin" and "destination" fields in the flights table use values from the airline and airport lookups. This shows the dependency of one table on others. The lookups contain all the necessary data types: text, date, numeric (integers).
+
+
 ## Notes
 - The load_data function expects the CSV files to be in the same directory as the script. The names of the files are airports.csv, airlines.csv, and flights.csv.
 - The data in the CSV files should have the same structure as the data in the values.py file.
