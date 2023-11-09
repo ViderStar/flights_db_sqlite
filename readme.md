@@ -16,30 +16,37 @@ The Database class provides the following methods:
 ## Data
 Data for airports and airlines is stored in values.py. The airport_values and airline_values variables contain data for 50 airports and airlines respectively. The flights_values variable contains randomly generated flight data. The actual data for airports, airlines, and flights is expected to be loaded from CSV files using the load_data method.
 
-Airport data (airports.csv):
+### Table `airports.csv`
 
-- id (Integer) 
-- code (Text)
-- city (Text)
-- country (Text)
+| Field | Datatype |
+|-------------|------------|
+| `ID`  | INT |
+| `Code`  | TEXT       |
+| `City` | TEXT       | 
+| `Country`   | TEXT       |
 
-Airline data (airlines.csv):
+### Table `airlines.csv`
 
-- id (Integer)
-- code (Text) 
-- name (Text)
+| Field | Datatype |
+|-------------|------------|
+| `ID`  | INT |
+| `Code`  | TEXT       |
+| `Name` | TEXT       | 
 
-Flight data (flights.csv):
+### Table `flights.csv`
 
-- id (Integer)
-- date (Date)  
-- airline (Text, value from airline lookup)
-- origin (Text, value from airport lookup)
-- destination (Text, value from airport lookup)
-- departure_time (Integer)
-- arrival_time (Integer)
-- flight_time (Integer) 
-- distance (Integer)
+| Field | Datatype |
+|-------------|------------|
+| `ID`  | INT |
+| `Date`  | DATE |
+| `Airline` | TEXT       | 
+| `Origin`   | TEXT       |
+| `destination `  | TEXT       |
+| `departure_time `  | INT |
+| `arrival_time ` | INT | 
+| `flight_time `   | INT |
+| `distance `   | INT |
+
 
 The "airline", "origin" and "destination" fields in the flights table use values from the airline and airport lookups. This shows the dependency of one table on others. The lookups contain all the necessary data types: text, date, numeric (integers).
 
