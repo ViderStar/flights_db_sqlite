@@ -45,7 +45,7 @@ Data for airports and airlines is stored in values.py. The airport_values and ai
 | `Departure_time`  | INT |
 | `Arrival_time ` | INT | 
 | `Flight_time `   | INT |
-| `Distance `   | INT |
+| `Distance `   | DECIMAL |
 
 
 The "airline", "origin" and "destination" fields in the flights table use values from the airline and airport lookups. This shows the dependency of one table on others. The lookups contain all the necessary data types: text, date, numeric (integers).
