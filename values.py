@@ -5,7 +5,7 @@ https://www.transtats.bts.gov/DataIndex.asp
 Flight data was randomly generated for the purposes of this demonstration.
 '''
 
-from random import randint
+from random import randint, uniform
 from datetime import datetime, timedelta
 
 airport_values = [
@@ -124,7 +124,8 @@ for _ in range(50):
     departure_time = randint(0, 2400)
     arrival_time = (departure_time + randint(1, 600)) % 2400
     flight_time = randint(1, 16)
-    distance = randint(100, 10000)
+    # distance = round(uniform(100, 10000), 3)
+    distance = randint(20, 1000)
     flights_values.append(
         (flight_date, airline_code, origin_code, destination_code, departure_time, arrival_time, flight_time,
          distance)
