@@ -20,6 +20,10 @@ class Database:
         Creates tables in the database for airports, airlines, and flights.
         """
         c = self.conn.cursor()
+        # self.conn.execute("PRAGMA foreign_keys = 1")
+        c.execute('''
+            DROP TABLE IF EXISTS airports;
+        ''')
 
         c.execute('''
             CREATE TABLE airports (
@@ -31,6 +35,10 @@ class Database:
         ''')
 
         c.execute('''
+            DROP TABLE IF EXISTS airlines;
+        ''')
+
+        c.execute('''
             CREATE TABLE airlines (
                 id INTEGER PRIMARY KEY,
                 code TEXT,
@@ -38,7 +46,10 @@ class Database:
             );
         ''')
 
-        # Modify the flights table as needed
+        c.execute('''
+            DROP TABLE IF EXISTS flights;
+        ''')
+
         c.execute('''
             CREATE TABLE flights (
                 id INTEGER PRIMARY KEY,
@@ -50,40 +61,41 @@ class Database:
                 arrival_time INTEGER,
                 flight_time INTEGER,
                 distance INTEGER,
-                FOREIGN KEY (airline) REFERENCES airlines (iata),
-                FOREIGN KEY (origin) REFERENCES airports (code),
-                FOREIGN KEY (destination) REFERENCES airports (code)
+                FOREIGN KEY (airline) REFERENCES airlines(code),
+                FOREIGN KEY (origin) REFERENCES airports(code),
+                FOREIGN KEY (destination) REFERENCES airports(code)
             );
         ''')
 
         self.conn.commit()
+
     def load_data(self):
         """
         Loads data from CSV files into the airports, airlines, and flights tables.
         """
         conn = self.conn
 
-        if os.path.exists('airports.csv'):
+        if os.path.exists('data/airports.csv'):
             try:
-                airports = pd.read_csv('airports.csv')
+                airports = pd.read_csv('data/airports.csv')
                 airports.to_sql('airports', conn, if_exists='append', index=False)
             except pd.errors.ParserError:
                 print('Error reading airports.csv')
         else:
             print('airports.csv not found')
 
-        if os.path.exists('airlines.csv'):
+        if os.path.exists('data/airlines.csv'):
             try:
-                airlines = pd.read_csv('airlines.csv')
+                airlines = pd.read_csv('data/airlines.csv')
                 airlines.to_sql('airlines', conn, if_exists='append', index=False)
             except pd.errors.ParserError:
                 print('Error reading airlines.csv')
         else:
             print('airlines.csv not found')
 
-        if os.path.exists('flights.csv'):
+        if os.path.exists('data/flights.csv'):
             try:
-                flights = pd.read_csv('flights.csv')
+                flights = pd.read_csv('data/flights.csv')
                 flights.to_sql('flights', conn, if_exists='append', index=False)
             except pd.errors.ParserError:
                 print('Error reading flights.csv')
@@ -91,10 +103,12 @@ class Database:
             print('flights.csv not found')
 
         self.conn.commit()
+
     def insert_airports(self, airport_values):
         """
         Inserts the given airport values into the airports table.
         """
+
         for i, airport in enumerate(airport_values):
             self.c.execute(
                 f'''
@@ -131,8 +145,6 @@ class Database:
                 ''')
 
         self.conn.commit()
-
-
 
     def get_flights_by_airline(self, airline_code):
         """
@@ -189,7 +201,8 @@ class Database:
 
         self.conn.commit()
 
-    def update_flights(self, id, date, airline, origin, destination, departure_time, arrival_time, flight_time, distance):
+    def update_flights(self, id, date, airline, origin, destination, departure_time, arrival_time, flight_time,
+                       distance):
         """
         Updates a flight with the given id.
         """
@@ -226,10 +239,10 @@ class Database:
 if __name__ == '__main__':
     db = Database()
 
-    # db.create_database()
+    db.create_database()
 
     # LOAD DATA FROM CSV
-    # db.load_data()
+    db.load_data()
 
     # INSERT 50 ROWS
     db.insert_airports(airport_values)
@@ -246,6 +259,6 @@ if __name__ == '__main__':
     unittest.TextTestRunner().run(suite)
 
     # DELETE ALL ROWS
-    db.delete_airports(0, 50)
-    db.delete_airlines(0, 50)
-    db.delete_flights(0, 50)
+    # db.delete_airports(0, 50)
+    # db.delete_airlines(0, 50)
+    # db.delete_flights(0, 50)
