@@ -222,30 +222,50 @@ class Database:
         self.c.execute('DELETE FROM flights WHERE id BETWEEN ? AND ?', (id_start, id_end))
         self.conn.commit()
 
+    def drop_db(self, password):
+        """
+        Drops the database if the correct password is provided.
+        """
+        if password == 'your_password':
+            self.c.execute('''
+                DROP TABLE IF EXISTS airports;
+            ''')
+            self.c.execute('''
+                DROP TABLE IF EXISTS airlines;
+            ''')
+            self.c.execute('''
+                DROP TABLE IF EXISTS flights;
+            ''')
+            self.conn.commit()
+            print("Database dropped successfully.")
+        else:
+            print("Incorrect password. Database was not dropped.")
+
 
 if __name__ == '__main__':
     db = Database()
+    # db.drop_db('your_password')
 
-    # db.create_database()
+    db.create_database()
 
     # LOAD DATA FROM CSV
-    # db.load_data()
+    db.load_data()
 
     # INSERT 50 ROWS
-    db.insert_airports(airport_values)
-    db.insert_airlines(airline_values)
-    db.insert_flights(flights_values)
+    # db.insert_airports(airport_values)
+    # db.insert_airlines(airline_values)
+    # db.insert_flights(flights_values)
 
     # UPDATE SOME ROWS
-    db.update_airports(0, 'LHR', 'London', 'England')
-    db.update_airlines(0, 'BA', 'British Airways')
-    db.update_flights(0, '2024-01-01', 'BA', 'LHR', 'JFK', 800, 1200, 400, 3500)
+    # db.update_airports(0, 'LHR', 'London', 'England')
+    # db.update_airlines(0, 'BA', 'British Airways')
+    # db.update_flights(0, '2024-01-01', 'BA', 'LHR', 'JFK', 800, 1200, 400, 3500)
 
     # TEST BASIC FUNCTIONAL
-    suite = unittest.TestLoader().loadTestsFromModule(test)
-    unittest.TextTestRunner().run(suite)
+    # suite = unittest.TestLoader().loadTestsFromModule(test)
+    # unittest.TextTestRunner().run(suite)
 
     # DELETE ALL ROWS
-    db.delete_airports(0, 50)
-    db.delete_airlines(0, 50)
-    db.delete_flights(0, 50)
+    # db.delete_airports(0, 50)
+    # db.delete_airlines(0, 50)
+    # db.delete_flights(0, 50)
