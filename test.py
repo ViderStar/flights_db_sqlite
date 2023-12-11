@@ -4,13 +4,13 @@ The functions of getting flights by airline code are tested,
 getting flights between two airports, updating flight information and deleting a flight.
 """
 
-from main import Database
+from Database import Database
 import unittest
 
 
 class TestDatabase(unittest.TestCase):
     def setUp(self):
-        self.db = Database()
+        self.db = Database("flight_data.db")
         self.c = self.db.c
 
     def test_get_flights_by_airline(self):
